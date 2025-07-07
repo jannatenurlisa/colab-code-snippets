@@ -7,3 +7,23 @@ from google.colab import files
 uploaded = files.upload()
 print(uploaded)
 ```
+### Read CSV & Summary
+```py
+# Import the pandas library for data handling
+import pandas as pd
+
+# Read a CSV file from the given path and store it in a DataFrame
+df = pd.read_csv('/content/data.csv')
+
+# Show the first 5 rows of the dataset
+df.head()
+
+# Display info about the dataset (column names, data types, non-null counts)
+df.info()
+
+# Get summary statistics for numerical columns (like mean, min, max)
+df.describe()
+
+# Get a list of all column names in the dataset
+df.columns.tolist()
+```
