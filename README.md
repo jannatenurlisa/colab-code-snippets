@@ -13,7 +13,7 @@ print(uploaded)
 import pandas as pd
 
 # Read a CSV file from the given path and store it in a DataFrame
-df = pd.read_csv('/content/data.csv')
+df = pd.read_csv('/CSV file location')
 
 # Show the first 5 rows of the dataset
 df.head()
