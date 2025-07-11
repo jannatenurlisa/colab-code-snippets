@@ -49,10 +49,45 @@ df['column_name'] = df['column_name'].str.strip().str.lower()
 ```
 
 
+### Show summary statistics for all numeric columns in the DataFrame
+```py
+df.describe()
 
+# Plot the count of unique values in a numeric column (e.g., release year)
+# Replace 'numeric_column' with your own column name (e.g., 'releaseYear')
+df['numeric_column'].value_counts().sort_index().plot(
+    kind='bar',
+    figsize=(15, 5)
+)
+```
+### Get the top 10 rows sorted by a numeric score column (e.g., rating)
+```py
+# Replace 'score_column' with your own column name (e.g., 'imdbAverageRating')
+top_items = df.sort_values(by='score_column', ascending=False).head(10)
+```
+### Count the most common values in a list-like text column (e.g., genres)
+```py
+from collections import Counter
 
+# Count the most common items in a list-like text column
+# Replace 'list_text_column' with your own column name (e.g., 'genres')
+list_column = df['list_text_column'].dropna().str.split(', ')
 
+# Flatten lists into a single list
+flat_list = [item for sublist in list_column for item in sublist]
 
+# Show the 10 most common items
+Counter(flat_list).most_common(10)
+```
+### Plot a Histogram
+
+```py
+import seaborn as sns
+
+# Plot a histogram of a numeric column
+# Replace 'numeric_column' with your own column name (e.g., 'imdbAverageRating')
+sns.histplot(df['numeric_column'], bins=20)
+```
 
 
 
